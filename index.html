@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Up</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    </head>
+    <body>
+        <header>
+            <h1>Weather Up</h1>
+            <p>Real Time Weather Updates!</p>
+        </header>
+
+        <!-- main body -->
+        <!-- All btns and longtitude and latitude -->
+        <div class="all_btns_and_lon_and_lat">
+            <!-- Seacrh City Input and button-->
+            <div class="city-textbox">
+                <input type="text" list="suggestions"  name="City" id="city" placeholder="City">
+                <datalist id="suggestions">
+                </datalist>
+                <p id="error"></p>
+            </div>
+            <!-- end seach city input and button-->
+        <!-- Latitude and longitude -->
+            <div class="lat_and_lon">
+                <div>
+                <span class="input-group-text">Lat</span>
+                    <input
+                    disabled
+                    type="text"
+                    class="form-control"
+                    inputmode="numeric"
+                    id="latitude"
+                    placeholder="latitude"
+                    aria-label="latitude"
+                    aria-describedby="basic-addon1"
+                    value="0.00"
+                    />
+                </div>
+                <div class="input-group col-sm">
+                    <span class="input-group-text" id="basic-addon1" >Lon</span>
+                    <input
+                    disabled
+                    type="text"
+                    class="form-control"
+                    inputmode="numeric"
+                    id="longitude"
+                    placeholder="longitude"
+                    aria-label="longitude"
+                    aria-describedby="basic-addon1"
+                    value="0.00"
+                    />
+                </div>
+            </div>
+            <!-- end lat and long --> 
+            <!-- Buttons start -->
+                <div class="btns">
+                    <button id="btnGet" type="button" class="btn">
+                        Get Weather
+                    </button>
+                    <button id="btnCurrent" type="button" class="btn">
+                        Use Current Location
+                    </button>
+                </div>
+            <!-- Buttons ends -->
+        </div>
+        <!-- end all btns and long and lat -->
+        <!-- map section-->
+        <div id="map"></div>
+        <!-- end map section -->
+        <!-- section for the cards for the forcast -->
+        <section class="cards_section">
+            <div class="all_cards">
+                <div class="card">
+                    <h5 >Today</h5>
+                    <div class="top-card">
+                    <img
+                    src="images/img.png"
+                    class="card-img-top"
+                    alt="Weather description"
+                    title="Weather description"
+                    />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Card Label</h3>
+                        <p class="card-text">High Temp Low Temp:</p>
+                        <p class="card-text">HighFeels like:</p>
+                        <p class="card-text">Pressure:</p>
+                        <p class="card-text">Humidty:</p>
+                        <p class="card-text">UV Index:</p>
+                        <p class="card-text">Precipitation:</p>
+                        <p class="card-text">Dew Point:</p>
+                        <p class="card-text">Wind speed and direction:</p>
+                        <p class="card-text">Sunrise:</p>
+                        <p class="card-text">Sunset:</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 >Tomorrow</h5>
+                    <div class="top-card">
+                    <img
+                    src="images/img.png"
+                    class="card-img-top"
+                    alt="Weather description"
+                    title="Weather description"
+                    />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Card Label</h3>
+                        <p class="card-text">High Temp Low Temp:</p>
+                        <p class="card-text">HighFeels like:</p>
+                        <p class="card-text">Pressure:</p>
+                        <p class="card-text">Humidty:</p>
+                        <p class="card-text">UV Index:</p>
+                        <p class="card-text">Precipitation:</p>
+                        <p class="card-text">Dew Point:</p>
+                        <p class="card-text">Wind speed and direction:</p>
+                        <p class="card-text">Sunrise:</p>
+                        <p class="card-text">Sunset:</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 >The day after tomorrow</h5>
+                    <div class="top-card">
+                    <img
+                    src="images/img.png"
+                    class="card-img-top"
+                    alt="Weather description"
+                    title="Weather description"
+                    
+                    />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Card Label</h3>
+                        <p class="card-text">High Temp Low Temp:</p>
+                        <p class="card-text">HighFeels like:</p>
+                        <p class="card-text">Pressure:</p>
+                        <p class="card-text">Humidty:</p>
+                        <p class="card-text">UV Index:</p>
+                        <p class="card-text">Precipitation:</p>
+                        <p class="card-text">Dew Point:</p>
+                        <p class="card-text">Wind speed and direction:</p>
+                        <p class="card-text">Sunrise:</p>
+                        <p class="card-text">Sunset:</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section for the cards -->
+
+        <footer>
+            <div class="info">
+                <p>
+                    Developed by: Maalug Jonathan<br>
+                                &copy;2023
+                </p>
+            </div>
+        </footer>
+        <script src="get_weather.js" ></script>
+    </body>
+</html>
