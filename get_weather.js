@@ -10,7 +10,7 @@ const map = L.map('map');
 const map_el = document.getElementById('map');
 const url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=";
 let cityBaseEndPoint = "https://api.teleport.org/api/cities/?search=";
-const key = "ec872a0df70b06ca2c9b30e1d7178a62";
+const key = "Your API key";
 const lang = "en";
 const units = "metric";
 
